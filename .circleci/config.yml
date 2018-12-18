@@ -11,6 +11,11 @@ jobs:
       - run: bundle install --path vendor/bundle
       - run: bundle exec rake db:create db:schema:load
       - run:
+          # testするファイルを特定して、rspecに渡している
+          name: rspec
+          command: |
+            bundle exec rspec
+      - run:
           name: Run tests
           command: rake
 
